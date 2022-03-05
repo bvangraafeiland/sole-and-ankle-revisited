@@ -30,14 +30,12 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
-        <Side>
-          <IconNav>
-            <Icon id="shopping-bag" />
-            <Icon id="search" />
-            <Icon id="menu" />
-            <MobileMenu />
-          </IconNav>
-        </Side>
+        <IconNav>
+          <Icon id="shopping-bag" />
+          <Icon id="search" />
+          <Icon id="menu" />
+        </IconNav>
+        <Side />
       </MainHeader>
 
       <MobileMenu
@@ -51,6 +49,7 @@ const Header = () => {
 const IconNav = styled.nav`
   display: none;
   @media ${QUERIES.tabletAndSmaller} {
+    margin-left: auto;
     display: flex;
     justify-content: flex-end;
     gap: 36px;
@@ -68,6 +67,7 @@ const MainHeader = styled.div`
   border-bottom: 1px solid ${COLORS.gray[300]};
 
   @media ${QUERIES.tabletAndSmaller} {
+    align-items: center;
     border-top: 4px solid ${COLORS.gray[900]};
   }
   @media ${QUERIES.phoneAndSmaller} {
@@ -86,6 +86,9 @@ const Nav = styled.nav`
 
 const Side = styled.div`
   flex: 1;
+  @media ${QUERIES.tabletAndSmaller} {
+    flex: revert;
+  }
 `;
 
 const NavLink = styled.a`
