@@ -5,14 +5,14 @@ import { COLORS, WEIGHTS } from '../../constants';
 
 import Icon from '../Icon';
 
-const Select = ({ label, value, children, className, ...delegated }) => {
+const Select = ({ label, value, children, ...delegated }) => {
   const childArray = React.Children.toArray(children);
   const selectedChild = childArray.find((child) => child.props.value === value);
 
   const displayedValue = selectedChild.props.children;
 
   return (
-    <Wrapper className={className}>
+    <Wrapper>
       <VisibleLabel>{label}</VisibleLabel>
 
       <SelectWrapper>

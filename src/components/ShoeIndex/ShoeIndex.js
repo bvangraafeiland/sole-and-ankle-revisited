@@ -15,13 +15,15 @@ const ShoeIndex = ({ sortId, setSortId }) => {
       <MainColumn>
         <Header>
           <Title>Running</Title>
-          <SortFilter
-            label="Sort"
-            value={sortId}
-            onChange={(ev) => setSortId(ev.target.value)}
-          >
-            <option value="newest">Newest Releases</option>
-            <option value="price">Price</option>
+          <SortFilter>
+            <Select
+              label="Sort"
+              value={sortId}
+              onChange={(ev) => setSortId(ev.target.value)}
+            >
+              <option value="newest">Newest Releases</option>
+              <option value="price">Price</option>
+            </Select>
           </SortFilter>
         </Header>
         <Spacer size={32} />
@@ -73,7 +75,7 @@ const Title = styled.h2`
   font-weight: ${WEIGHTS.medium};
 `;
 
-const SortFilter = styled(Select)`
+const SortFilter = styled.div`
   @media ${QUERIES.phoneAndSmaller} {
     display: none;
   }
