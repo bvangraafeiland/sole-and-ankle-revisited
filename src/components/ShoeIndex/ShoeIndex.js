@@ -68,6 +68,10 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    align-items: flex-end;
+  }
 `;
 
 const Title = styled.h2`
