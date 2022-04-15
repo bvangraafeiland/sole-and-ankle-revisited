@@ -12,13 +12,12 @@ import VisuallyHidden from '../VisuallyHidden';
 const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
     <Overlay isOpen={isOpen} onDismiss={onDismiss}>
-      <Wrapper>
-        <TopSection>
-          <CloseButton onClick={onDismiss}>
-            <Icon id="close" />
-            <VisuallyHidden>Dismiss menu</VisuallyHidden>
-          </CloseButton>
-        </TopSection>
+      <Content aria-label="Menu">
+        <CloseButton onClick={onDismiss}>
+          <Icon id="close" />
+          <VisuallyHidden>Dismiss menu</VisuallyHidden>
+        </CloseButton>
+        <TopSection />
         <MainNav>
           <a href="/sale">Sale</a>
           <a href="/new">New&nbsp;Releases</a>
@@ -32,14 +31,16 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
           <a href="/privacy">Privacy Policy</a>
           <a href="/contact">Contact Us</a>
         </Footer>
-      </Wrapper>
+      </Content>
     </Overlay>
   );
 };
 
 const CloseButton = styled(UnstyledButton)`
-  position: relative;
-  right: -10px;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  padding: 16px;
 `;
 const Overlay = styled(DialogOverlay)`
   display: none;
@@ -51,7 +52,7 @@ const Overlay = styled(DialogOverlay)`
     justify-content: flex-end;
   }
 `;
-const Wrapper = styled(DialogContent)`
+const Content = styled(DialogContent)`
   background: white;
   display: flex;
   flex-direction: column;
@@ -60,14 +61,11 @@ const Wrapper = styled(DialogContent)`
 `;
 const TopSection = styled.div`
   flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
 `;
 const MainNav = styled.nav`
   flex: 1;
   display: flex;
-  gap: 22px;
+  gap: 16px;
   flex-direction: column;
   text-transform: uppercase;
   & a {
