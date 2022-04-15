@@ -30,6 +30,8 @@ const Header = () => {
           <NavLink href="/women">Women</NavLink>
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/collections">Herres</NavLink>
+          <NavLink href="/collections">Rwina</NavLink>
         </Nav>
         <MobileNav>
           <UnstyledButton>
@@ -75,6 +77,7 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  overflow: auto;
 
   @media ${QUERIES.tabletAndSmaller} {
     align-items: center;
@@ -87,7 +90,7 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(0.5rem, 8vw - 4rem, 3rem);
   margin: 0px 48px;
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
