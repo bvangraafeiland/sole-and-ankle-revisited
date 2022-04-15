@@ -6,6 +6,8 @@ import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import Icon from '../Icon';
+import UnstyledButton from '../UnstyledButton';
+import VisuallyHidden from '../VisuallyHidden';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -13,7 +15,6 @@ const Header = () => {
   // For our mobile hamburger menu, we'll want to use a button
   // with an onClick handler, something like this:
   //
-  // <button onClick={() => setShowMobileMenu(true)}>
 
   return (
     <header>
@@ -30,11 +31,20 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
-        <IconNav>
-          <Icon id="shopping-bag" />
-          <Icon id="search" />
-          <Icon id="menu" />
-        </IconNav>
+        <MobileNav>
+          <UnstyledButton>
+            <Icon id="shopping-bag" />
+            <VisuallyHidden>Open cart</VisuallyHidden>
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id="search" />
+            <VisuallyHidden>Search</VisuallyHidden>
+          </UnstyledButton>
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
+            <Icon id="menu" />
+            <VisuallyHidden>Open menu</VisuallyHidden>
+          </UnstyledButton>
+        </MobileNav>
         <Side />
       </MainHeader>
 
@@ -46,7 +56,7 @@ const Header = () => {
   );
 };
 
-const IconNav = styled.nav`
+const MobileNav = styled.nav`
   display: none;
   @media ${QUERIES.tabletAndSmaller} {
     margin-left: auto;
