@@ -47,7 +47,7 @@ const Overlay = styled(DialogOverlay)`
   @media ${QUERIES.tabletAndSmaller} {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--color-backdrop);
     display: flex;
     justify-content: flex-end;
   }
